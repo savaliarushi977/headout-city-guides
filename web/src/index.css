@@ -1,0 +1,136 @@
+/* Halyard, verbatim from the storefront design system (typography §Loading Halyard). */
+@font-face {
+  font-family: halyard-display;
+  src:
+    url("https://use.typekit.net/af/165087/00000000000000007735adc0/30/l?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n5&v=3") format("woff2"),
+    url("https://use.typekit.net/af/165087/00000000000000007735adc0/30/d?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n5&v=3") format("woff");
+  font-display: swap; font-style: normal; font-weight: 500;
+}
+@font-face {
+  font-family: halyard-text;
+  src:
+    url("https://use.typekit.net/af/e40556/00000000000000007735adbc/30/l?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n3&v=3") format("woff2"),
+    url("https://use.typekit.net/af/e40556/00000000000000007735adbc/30/d?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n3&v=3") format("woff");
+  font-display: swap; font-style: normal; font-weight: 300;
+}
+@font-face {
+  font-family: halyard-text;
+  src:
+    url("https://use.typekit.net/af/7c9acc/00000000000000007735adc8/30/l?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n5&v=3") format("woff2"),
+    url("https://use.typekit.net/af/7c9acc/00000000000000007735adc8/30/d?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n5&v=3") format("woff");
+  font-display: swap; font-style: normal; font-weight: 500;
+}
+@font-face {
+  font-family: halyard-text;
+  src:
+    url("https://use.typekit.net/af/2ed20c/00000000000000007735add1/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"),
+    url("https://use.typekit.net/af/2ed20c/00000000000000007735add1/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff");
+  font-display: swap; font-style: normal; font-weight: 600;
+}
+
+:root {
+  /* Surfaces and edges (colors §0, §1) */
+  --surface-page: #ffffff;
+  --surface-grey-1: #fafafa;
+  --surface-grey-2: #f8f8f8;
+  --surface-grey-3: #f0f0f0;
+  --dividers-primary: #f0f0f0;
+  --dividers-dark: #e2e2e2;
+
+  /* Text */
+  --text-grey-1: #222222;
+  --text-grey-2: #444444;
+  --text-grey-3: #666666;
+  --text-white: #ffffff;
+  --text-positive: #078842;
+  --text-warning: #9f6b00;
+  --text-candy: #e5006e;
+
+  /* Status surfaces */
+  --surface-success: #f1fff2;
+  --surface-warning: #fff8e5;
+
+  /* CTA */
+  --cta-primary: #8000ff;
+  --cta-primary-hover: #7300e5;
+  --cta-primary-pressed: #6600cc;
+  --cta-black: #222222;
+  --cta-black-hover: #111111;
+  --cta-tertiary: #f3e9ff;
+  --text-primary: #6600cc;
+
+  --focus-ring: #330066;
+  --overlay-photo: linear-gradient(186deg, rgba(21, 1, 42, 0) 17%, #15012a 75%);
+
+  /* Rail */
+  --content-max: 75rem;
+  --content-gutter: 16px;
+  --toc-width: 240px;
+
+  --font-text: halyard-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: halyard-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-grey-1);
+  font-family: var(--font-text);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, p, ul, ol, figure, table { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; cursor: pointer; }
+a { color: inherit; }
+
+:focus-visible { outline: 1px solid var(--focus-ring); outline-offset: 2px; }
+
+/* Named text styles (typography §9). Mobile steps down one size inside the category. */
+.t-display-regular { font-family: var(--font-display); font-size: 36px; line-height: 44px; font-weight: 500; letter-spacing: 0.6px; text-wrap: balance; }
+.t-display-small { font-family: var(--font-display); font-size: 30px; line-height: 38px; font-weight: 500; letter-spacing: 0.4px; text-wrap: balance; }
+.t-heading-large { font-size: 24px; line-height: 28px; font-weight: 600; text-wrap: balance; }
+.t-heading-medium { font-size: 21px; line-height: 28px; font-weight: 600; text-wrap: balance; }
+.t-heading-regular { font-size: 18px; line-height: 24px; font-weight: 600; text-wrap: balance; }
+.t-heading-small { font-size: 15px; line-height: 20px; font-weight: 600; }
+.t-subheading-regular { font-size: 14px; line-height: 20px; font-weight: 500; }
+.t-subheading-small { font-size: 12px; line-height: 16px; font-weight: 500; }
+.t-label-large { font-size: 17px; line-height: 20px; font-weight: 300; }
+.t-label-large-heavy { font-size: 17px; line-height: 20px; font-weight: 500; }
+.t-label-medium { font-size: 15px; line-height: 20px; font-weight: 300; text-wrap: pretty; }
+.t-label-medium-heavy { font-size: 15px; line-height: 20px; font-weight: 500; }
+.t-label-regular { font-size: 14px; line-height: 16px; font-weight: 300; }
+.t-label-regular-heavy { font-size: 14px; line-height: 16px; font-weight: 500; }
+.t-label-small { font-size: 12px; line-height: 16px; font-weight: 300; }
+.t-para-large { font-size: 17px; line-height: 28px; font-weight: 300; text-wrap: pretty; }
+.t-para-medium { font-size: 15px; line-height: 24px; font-weight: 300; text-wrap: pretty; }
+.t-para-regular { font-size: 14px; line-height: 20px; font-weight: 300; text-wrap: pretty; }
+.t-cta-regular { font-size: 16px; line-height: 20px; font-weight: 500; }
+.t-cta-small { font-size: 14px; line-height: 20px; font-weight: 500; }
+
+@media (max-width: 767.98px) {
+  .t-display-regular { font-size: 30px; line-height: 38px; letter-spacing: 0.4px; }
+  .t-display-small { font-size: 24px; line-height: 28px; }
+  .t-heading-large { font-size: 18px; line-height: 24px; }
+  .t-para-large { font-size: 15px; line-height: 24px; }
+  .t-para-medium { font-size: 14px; line-height: 20px; }
+  .t-label-medium { font-size: 14px; line-height: 16px; }
+}
+
+.grey-2 { color: var(--text-grey-2); }
+.grey-3 { color: var(--text-grey-3); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
